@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ShowAll from './components/ShowAll'
+import EditAuthors from './components/EditAuthor'
+import NewAuthor from './components/NewAuthor'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min'
 
-function App() {
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <div className='container w-75'>
+        <h1 className='container text-center mt-3'>Favorite Authors </h1>
+        <Routes>
+          <Route path='/' element={<ShowAll />} />
+          <Route path='/new' element={<NewAuthor />} />
+          <Route path='/edit/:id' element={<EditAuthors />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
